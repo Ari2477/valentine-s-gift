@@ -13,9 +13,9 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  background: linear-gradient(135deg,#ffe6ee,#ffcce0,#ffb3d9);
+  background: linear-gradient(135deg,#4a0000,#660000,#4a0000);
   overflow:hidden;
-  color:#d1477c;
+  color:#ffb3c6;
   position:relative;
 }
 
@@ -26,7 +26,7 @@ body::before{
   left:0;
   width:100%;
   height:100%;
-  background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" opacity="0.05"><path d="M50,30 Q60,20 70,30 T90,40 Q85,60 70,70 T50,90 Q30,70 20,60 T10,40 Q30,30 40,30 T50,30Z" fill="%23ff66a3"/></svg>');
+  background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" opacity="0.05"><path d="M50,30 Q60,20 70,30 T90,40 Q85,60 70,70 T50,90 Q30,70 20,60 T10,40 Q30,30 40,30 T50,30Z" fill="%23cc3333"/></svg>');
   pointer-events:none;
 }
 
@@ -35,17 +35,17 @@ body::before{
   max-width:360px;
   padding:30px 25px;
   border-radius:25px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(80, 0, 0, 0.85);
   backdrop-filter: blur(10px);
   box-shadow:
-    0 15px 35px rgba(255, 105, 180, 0.2),
-    0 5px 15px rgba(255, 105, 180, 0.1),
-    inset 0 0 20px rgba(255, 255, 255, 0.8);
+    0 15px 35px rgba(139, 0, 0, 0.3),
+    0 5px 15px rgba(139, 0, 0, 0.2),
+    inset 0 0 20px rgba(255, 200, 200, 0.2);
   text-align:center;
   transition:.5s;
   position:relative;
   z-index:10;
-  border: 3px solid #ffcce6;
+  border: 3px solid #993333;
 }
 
 .card::after{
@@ -55,18 +55,19 @@ body::before{
   left:50%;
   transform:translateX(-50%);
   font-size:20px;
-  background:white;
+  background:#660000;
   padding:0 15px;
   border-radius:20px;
-  box-shadow:0 5px 10px rgba(255,105,180,0.2);
+  box-shadow:0 5px 10px rgba(139, 0, 0, 0.3);
+  color:#ffb3c6;
 }
 
 .title{
   font-size:24px;
   font-weight:bold;
   margin-bottom:8px;
-  color:#ff66a3;
-  text-shadow: 2px 2px 0px #ffe6f2;
+  color:#ff6680;
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
   letter-spacing:0.5px;
   position:relative;
   display:inline-block;
@@ -76,12 +77,12 @@ body::before{
   font-size:14px;
   opacity:.9;
   margin-bottom:25px;
-  color:#ff80b3;
+  color:#ff99aa;
   font-weight:600;
 }
 
 .display{
-  background: linear-gradient(145deg, #ffe6f2, #ffd9eb);
+  background: linear-gradient(145deg, #500000, #400000);
   height:55px;
   border-radius:15px;
   display:flex;
@@ -90,12 +91,12 @@ body::before{
   letter-spacing:14px;
   font-size:26px;
   margin-bottom:25px;
-  border: 2px dashed #ff99cc;
+  border: 2px dashed #cc6666;
   box-shadow: 
-    inset 0 0 10px rgba(255, 255, 255, 0.8),
-    0 5px 10px rgba(255, 105, 180, 0.1);
+    inset 0 0 10px rgba(255, 200, 200, 0.2),
+    0 5px 10px rgba(139, 0, 0, 0.2);
   font-weight:bold;
-  color:#ff3399;
+  color:#ff6680;
   padding-right:14px;
   font-family:monospace;
 }
@@ -112,28 +113,28 @@ button{
   border:none;
   border-radius:18px;
   font-size:22px;
-  color:#ff66a3;
-  background: linear-gradient(145deg, #fff0f7, #ffe6f2);
+  color:#ff99aa;
+  background: linear-gradient(145deg, #600000, #500000);
   transition:.2s;
   font-weight:bold;
   cursor:pointer;
   position:relative;
   overflow:hidden;
-  border: 2px solid #ffcce6;
-  box-shadow: 0 6px 0 #ffb3d9;
+  border: 2px solid #993333;
+  box-shadow: 0 6px 0 #660000;
   transform:translateY(0);
 }
 
 button:hover{
-  background: linear-gradient(145deg, #ffe6f2, #ffd9eb);
+  background: linear-gradient(145deg, #700000, #600000);
   transform:translateY(-3px);
-  box-shadow: 0 8px 0 #ff99cc;
+  box-shadow: 0 8px 0 #770000;
 }
 
 button:active{
   transform:translateY(2px);
-  box-shadow: 0 2px 0 #ff99cc;
-  background: #ffcce6;
+  box-shadow: 0 2px 0 #770000;
+  background: #993333;
 }
 
 button::before{
@@ -146,15 +147,15 @@ button::before{
 }
 
 button:nth-child(10){ 
-  background: linear-gradient(145deg, #ffd9eb, #ffcce6);
-  color:#ff3385;
-  box-shadow: 0 6px 0 #ff99cc;
+  background: linear-gradient(145deg, #800000, #600000);
+  color:#ff6680;
+  box-shadow: 0 6px 0 #990000;
 }
 
 button:nth-child(12){ 
-  background: linear-gradient(145deg, #d9ffeb, #ccffe6);
-  color:#33cc66;
-  box-shadow: 0 6px 0 #99ffbb;
+  background: linear-gradient(145deg, #006600, #004d00);
+  color:#66ff66;
+  box-shadow: 0 6px 0 #009900;
 }
 
 @keyframes cuteShake{
@@ -168,7 +169,7 @@ button:nth-child(12){
 .secret{
   display:none;
   animation:cuteReveal 1s ease forwards;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(80, 0, 0, 0.9);
 }
 @keyframes cuteReveal{
   0%{opacity:0; transform:scale(0.8) rotate(-5deg)}
@@ -183,20 +184,20 @@ button:nth-child(12){
   min-height:180px;
   text-align:center;
   padding:20px;
-  background: linear-gradient(145deg, #fff5f9, #ffe6f2);
+  background: linear-gradient(145deg, #400000, #300000);
   border-radius:20px;
-  border: 2px dotted #ff99cc;
+  border: 2px dotted #cc6666;
   font-weight:500;
-  color:#cc6699;
+  color:#ffb3c6;
   text-align:left;
 }
 
 .heart{
   position:absolute;
-  color:#ff66a3;
+  color:#cc3333;
   animation:floatUp 7s linear infinite;
   z-index:1;
-  filter: drop-shadow(0 0 3px rgba(255, 105, 180, 0.3));
+  filter: drop-shadow(0 0 3px rgba(204, 51, 51, 0.5));
 }
 @keyframes floatUp{
   0%{transform:translateY(100vh) rotate(0deg) scale(0.5); opacity:0}
@@ -208,7 +209,7 @@ button:nth-child(12){
   width:150px;
   margin:15px auto 10px;
   display:block;
-  filter: drop-shadow(0 5px 10px rgba(255, 105, 180, 0.3));
+  filter: drop-shadow(0 5px 10px rgba(204, 51, 51, 0.4));
   animation: bounce 2s infinite alternate;
 }
 
@@ -221,7 +222,7 @@ button:nth-child(12){
   position:fixed;
   width:12px;
   height:12px;
-  background: #ff66a3;
+  background: #cc3333;
   top:0;
   left:50%;
   pointer-events:none;
@@ -230,7 +231,7 @@ button:nth-child(12){
   animation:confettiFall 3s forwards;
   border-radius:50%;
   z-index:100;
-  box-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+  box-shadow: 0 0 5px rgba(204, 51, 51, 0.6);
 }
 
 @keyframes confettiFall{
@@ -240,11 +241,11 @@ button:nth-child(12){
 
 .cloud{
   position:absolute;
-  background:white;
+  background:#993333;
   border-radius:50%;
-  box-shadow: 0 0 20px rgba(255, 182, 193, 0.3);
+  box-shadow: 0 0 20px rgba(153, 51, 51, 0.4);
   z-index:0;
-  opacity:0.6;
+  opacity:0.3;
 }
 
 .cloud:nth-child(1){width:80px;height:30px;top:20%;left:10%;}
@@ -310,7 +311,7 @@ layout.forEach(n=>{
       input+=n;
       update();
       b.style.transform = "scale(0.95)";
-      b.style.background = "#ffcce6";
+      b.style.background = "#993333";
       setTimeout(() => {
         b.style.transform = "";
         b.style.background = "";
@@ -323,7 +324,7 @@ function update(){
   let displayText = "";
   for(let i = 0; i < 6; i++) {
     if(i < input.length) {
-      displayText += `<span style="color:#ff0080;text-shadow:1px 1px 0 #ffcce6">${input[i]}</span>`;
+      displayText += `<span style="color:#ff6680;text-shadow:1px 1px 0 #660000">${input[i]}</span>`;
     } else {
       displayText += "_";
     }
@@ -335,7 +336,6 @@ function check(){
   if(input===correct){
     unlock();
   } else {
-
     navigator.vibrate?.(100);
     lock.classList.add("shake");
     setTimeout(()=>lock.classList.remove("shake"),400);
@@ -345,9 +345,9 @@ function check(){
 }
 
 function unlock(){
-  document.body.style.background = "linear-gradient(135deg,#ffccdd,#ffb3d9,#ff99cc)";
+  document.body.style.background = "linear-gradient(135deg,#990000,#cc0000,#990000)";
   setTimeout(() => {
-    document.body.style.background = "linear-gradient(135deg,#ffe6ee,#ffcce0,#ffb3d9)";
+    document.body.style.background = "linear-gradient(135deg,#4a0000,#660000,#4a0000)";
   }, 300);
 
   for(let i=0; i<20; i++){
@@ -355,11 +355,11 @@ function unlock(){
     sparkle.style.position = "absolute";
     sparkle.style.width = "5px";
     sparkle.style.height = "5px";
-    sparkle.style.background = "white";
+    sparkle.style.background = "#ff6680";
     sparkle.style.borderRadius = "50%";
     sparkle.style.left = Math.random()*100 + "vw";
     sparkle.style.top = Math.random()*100 + "vh";
-    sparkle.style.boxShadow = "0 0 10px pink";
+    sparkle.style.boxShadow = "0 0 10px #cc3333";
     sparkle.style.animation = `sparkleFade 1s forwards`;
     document.body.appendChild(sparkle);
     setTimeout(() => sparkle.remove(), 1000);
@@ -438,7 +438,7 @@ function hearts(){
 }
 
 function confettiExplosion(){
-  const colors = ["#ff66a3", "#ff99cc", "#ffb3d9", "#ff80bf", "#ff4d94"];
+  const colors = ["#cc3333", "#990000", "#660000", "#ff3333", "#cc0000"];
   for(let i=0;i<100;i++){
     setTimeout(() => {
       const c=document.createElement("div");
