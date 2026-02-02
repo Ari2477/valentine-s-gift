@@ -4,7 +4,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Only For You My Love 💝</title>
-
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Comic Sans MS', 'Poppins', cursive;}
 
@@ -32,7 +31,7 @@ body::before{
 
 .card{
   width:92%;
-  max-width:360px;
+  max-width:380px;
   padding:30px 25px;
   border-radius:25px;
   background: rgba(80, 0, 0, 0.85);
@@ -158,6 +157,85 @@ button:nth-child(12){
   box-shadow: 0 6px 0 #009900;
 }
 
+/* VALENTINE PROPOSAL CARD */
+.proposal{
+  display:none;
+  animation:cuteReveal 1s ease forwards;
+}
+
+.proposal-content{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:15px;
+}
+
+.proposal-title{
+  font-size:28px;
+  font-weight:bold;
+  color:#ff6680;
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+  margin-bottom:10px;
+}
+
+.proposal-gif{
+  width:180px;
+  height:180px;
+  border-radius:20px;
+  object-fit:cover;
+  margin:10px 0;
+  border:3px solid #993333;
+  box-shadow:0 8px 20px rgba(139, 0, 0, 0.4);
+}
+
+.proposal-buttons{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  margin-top:20px;
+  width:100%;
+}
+
+.yes-btn{
+  padding:18px 35px;
+  font-size:22px;
+  background: linear-gradient(145deg, #006600, #004d00);
+  color:#66ff66;
+  border:3px solid #33cc33;
+  border-radius:20px;
+  cursor:pointer;
+  font-weight:bold;
+  transition:0.3s;
+  flex:1;
+  max-width:150px;
+}
+
+.yes-btn:hover{
+  transform:scale(1.05);
+  background: linear-gradient(145deg, #008800, #006600);
+  box-shadow:0 0 20px rgba(51, 204, 51, 0.5);
+}
+
+.no-btn{
+  padding:18px 35px;
+  font-size:22px;
+  background: linear-gradient(145deg, #800000, #600000);
+  color:#ff6680;
+  border:3px solid #cc3333;
+  border-radius:20px;
+  cursor:pointer;
+  font-weight:bold;
+  position:relative;
+  transition:all 0.1s;
+  flex:1;
+  max-width:150px;
+}
+
+.no-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px rgba(204, 51, 51, 0.5);
+}
+
 @keyframes cuteShake{
   0%,100%{transform:translateX(0)}
   25%{transform:translateX(-8px) rotate(-2deg)}
@@ -190,8 +268,9 @@ button:nth-child(12){
   font-weight:500;
   color:#ffb3c6;
   text-align:left;
-
-  white-space: pre-wrap; /* ← PRESERVE LINE BREAKS */
+  white-space: pre-wrap;
+  max-height:300px;
+  overflow-y:auto;
 }
 
 .heart{
@@ -208,16 +287,17 @@ button:nth-child(12){
 }
 
 .sticker{
-  width:150px;
+  width:160px;
   margin:15px auto 10px;
   display:block;
-  filter: drop-shadow(0 5px 10px rgba(204, 51, 51, 0.4));
-  animation: bounce 2s infinite alternate;
+  filter: drop-shadow(0 5px 15px rgba(204, 51, 51, 0.5));
+  animation: bounce 2s infinite alternate ease-in-out;
 }
 
 @keyframes bounce{
-  0%{transform:translateY(0)}
-  100%{transform:translateY(-10px)}
+  0%{transform:translateY(0) scale(1);}
+  50%{transform:translateY(-15px) scale(1.05);}
+  100%{transform:translateY(0) scale(1);}
 }
 
 .confetti{
@@ -253,6 +333,52 @@ button:nth-child(12){
 .cloud:nth-child(1){width:80px;height:30px;top:20%;left:10%;}
 .cloud:nth-child(2){width:100px;height:40px;top:60%;right:15%;}
 .cloud:nth-child(3){width:60px;height:25px;top:80%;left:20%;}
+
+.proposal-heart{
+  font-size:40px;
+  animation:heartBeat 1.5s infinite;
+  margin:10px 0;
+}
+
+@keyframes heartBeat{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.2);}
+  100%{transform:scale(1);}
+}
+
+@keyframes escapeMove {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(50px, -30px); }
+  50% { transform: translate(-40px, 40px); }
+  75% { transform: translate(30px, -20px); }
+  100% { transform: translate(-50px, 30px); }
+}
+
+.no-btn-escaping {
+  animation: escapeMove 0.5s ease-in-out infinite alternate;
+}
+
+.no-message {
+  position: fixed;
+  background: rgba(80, 0, 0, 0.9);
+  color: #ff99aa;
+  padding: 10px 15px;
+  border-radius: 15px;
+  border: 2px solid #cc6666;
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 1000;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  animation: floatMessage 2s forwards;
+  pointer-events: none;
+}
+
+@keyframes floatMessage {
+  0% { opacity: 0; transform: translateY(0) scale(0.8); }
+  20% { opacity: 1; transform: translateY(-20px) scale(1); }
+  80% { opacity: 1; transform: translateY(-40px) scale(1); }
+  100% { opacity: 0; transform: translateY(-60px) scale(0.8); }
+}
 </style>
 </head>
 <body>
@@ -266,9 +392,26 @@ button:nth-child(12){
 <div class="card" id="lock">
   <div class="title">For My Favorite Person 💕</div>
   <div class="sub">Enter the code baby 🥰</div>
-
   <div class="display" id="display">______</div>
   <div class="keypad" id="keys"></div>
+</div>
+
+<div class="card proposal" id="proposal">
+  <div class="proposal-content">
+    <div class="proposal-title">Will you be my Valentine? 💖</div>
+    <div class="proposal-heart">💘</div>
+    
+    <img class="proposal-gif" src="https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyeTJvcjI3dmwyOGtidjU4bjduOG91bXFucnF6ajR6OW4xM2VpdWZtYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/vdcGRctqWqhHnDDZ5p/giphy.gif" alt="Cute proposal gif">
+    
+    <div class="proposal-buttons">
+      <button class="yes-btn" id="yesBtn">YES! 💚</button>
+      <button class="no-btn" id="noBtn">NO 😢</button>
+    </div>
+    
+    <div style="margin-top:15px; font-size:14px; color:#ff99aa; opacity:0.8;">
+      Choose wisely my love...
+    </div>
+  </div>
 </div>
 
 <div class="card secret" id="secret">
@@ -283,8 +426,28 @@ let input="";
 const display=document.getElementById("display");
 const keys=document.getElementById("keys");
 const lock=document.getElementById("lock");
+const proposal=document.getElementById("proposal");
 const secret=document.getElementById("secret");
 const music=document.getElementById("bgMusic");
+const yesBtn=document.getElementById("yesBtn");
+const noBtn=document.getElementById("noBtn");
+
+let noBtnAttempts = 0;
+const noBtnMessages = [
+  "Are you sure? 😢",
+  "Please say yes! 💔",
+  "Think again baby! 🥺",
+  "My heart is breaking! 💔",
+  "I'll be so sad... 😭",
+  "Last chance! 🙏",
+  "Hey, please? 🥰",
+  "Baby, look I'm sad 🥺"
+];
+
+document.addEventListener('click', function initMusic() {
+  music.volume = 0.5;
+  document.removeEventListener('click', initMusic);
+}, { once: true });
 
 const layout=["1","2","3","4","5","6","7","8","9","C","0","✓"];
 layout.forEach(n=>{
@@ -296,16 +459,12 @@ layout.forEach(n=>{
       input="";
       update();
       b.style.transform = "scale(0.9)";
-      setTimeout(() => {
-        b.style.transform = "";
-      }, 200);
+      setTimeout(() => b.style.transform = "", 200);
       return;
     }
     if(n==="✓"){
       b.style.transform = "scale(0.9)";
-      setTimeout(() => {
-        b.style.transform = "";
-      }, 200);
+      setTimeout(() => b.style.transform = "", 200);
       check();
       return;
     }
@@ -336,7 +495,7 @@ function update(){
 
 function check(){
   if(input===correct){
-    unlock();
+    showProposal();
   } else {
     navigator.vibrate?.(100);
     lock.classList.add("shake");
@@ -346,7 +505,7 @@ function check(){
   }
 }
 
-function unlock(){
+function showProposal(){
   document.body.style.background = "linear-gradient(135deg,#990000,#cc0000,#990000)";
   setTimeout(() => {
     document.body.style.background = "linear-gradient(135deg,#4a0000,#660000,#4a0000)";
@@ -368,51 +527,163 @@ function unlock(){
   }
   
   lock.style.display="none";
+  proposal.style.display="block";
+  
+  proposalHearts();
+}
+
+function proposalHearts(){
+  for(let i=0; i<15; i++){
+    setTimeout(() => {
+      const h=document.createElement("div");
+      h.className="heart";
+      h.innerHTML="💘";
+      h.style.left=Math.random()*100+"vw";
+      h.style.fontSize=(20+Math.random()*30)+"px";
+      h.style.opacity = 0.8 + Math.random()*0.2;
+      document.body.appendChild(h);
+      setTimeout(()=>h.remove(),7000);
+    }, i*100);
+  }
+}
+
+function createFloatingMessage(text, x, y) {
+  const message = document.createElement("div");
+  message.className = "no-message";
+  message.textContent = text;
+  message.style.left = x + "px";
+  message.style.top = y + "px";
+  document.body.appendChild(message);
+  setTimeout(() => message.remove(), 2000);
+}
+
+noBtn.addEventListener('mouseover', function(e) {
+  e.preventDefault();
+
+  const rect = this.getBoundingClientRect();
+  const newX = Math.random() * (window.innerWidth - rect.width - 50) + 25;
+  const newY = Math.random() * (window.innerHeight - rect.height - 50) + 25;
+  
+  this.style.position = 'fixed';
+  this.style.left = newX + 'px';
+  this.style.top = newY + 'px';
+
+  if(noBtnAttempts < noBtnMessages.length) {
+    createFloatingMessage(noBtnMessages[noBtnAttempts], newX, newY - 50);
+  }
+  
+  noBtnAttempts++;
+
+  if(noBtnAttempts >= 5) {
+    setTimeout(() => {
+      this.textContent = "Okay... YES! 😘";
+      this.style.background = 'linear-gradient(145deg, #006600, #004d00)';
+      this.style.color = '#66ff66';
+      this.style.border = '3px solid #33cc33';
+      this.style.position = 'static';
+      this.style.transform = 'none';
+      this.classList.remove('no-btn-escaping');
+      noBtn.removeEventListener('mouseover', arguments.callee);
+      noBtn.onclick = showLoveLetter;
+    }, 500);
+  }
+});
+
+noBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  e.stopPropagation();
+
+  const rect = this.getBoundingClientRect();
+  const newX = Math.random() * (window.innerWidth - rect.width - 50) + 25;
+  const newY = Math.random() * (window.innerHeight - rect.height - 50) + 25;
+  
+  this.style.position = 'fixed';
+  this.style.left = newX + 'px';
+  this.style.top = newY + 'px';
+
+  if(noBtnAttempts < noBtnMessages.length) {
+    createFloatingMessage(noBtnMessages[noBtnAttempts], newX, newY - 50);
+    noBtnAttempts++;
+  }
+});
+
+yesBtn.addEventListener('click', showLoveLetter);
+
+function showLoveLetter(){
+  document.body.style.background = "linear-gradient(135deg,#ff0000,#cc0000,#ff0000)";
+  setTimeout(() => {
+    document.body.style.background = "linear-gradient(135deg,#4a0000,#660000,#4a0000)";
+  }, 500);
+  
+  confettiExplosion();
+  proposal.style.display="none";
   secret.style.display="block";
 
-  music.volume = 0;
-  music.play();
-  let vol = 0;
-  const fadeIn = setInterval(() => {
-    vol += 0.03;
-    music.volume = Math.min(vol, 0.5);
-    if(vol >= 0.5) clearInterval(fadeIn);
-  }, 100);
+  setTimeout(() => {
+    music.currentTime = 0;
+    music.play().then(() => {
+      music.volume = 0;
+      let vol = 0;
+      const fadeIn = setInterval(() => {
+        vol += 0.01;
+        music.volume = Math.min(vol, 0.7);
+        if(vol >= 0.7) clearInterval(fadeIn);
+      }, 50);
+    }).catch(e => {
+      console.log("Music play failed, will retry on click");
+    });
+  }, 300);
   
   hearts();
   typeMessage();
-  confettiExplosion();
+  
+  setTimeout(() => confettiExplosion(), 1000);
+  
+  setTimeout(() => {
+    for(let i=0; i<50; i++){
+      setTimeout(() => {
+        const h=document.createElement("div");
+        h.className="heart";
+        h.innerHTML="💖";
+        h.style.left=Math.random()*100+"vw";
+        h.style.fontSize=(25+Math.random()*35)+"px";
+        h.style.opacity = 0.9 + Math.random()*0.1;
+        document.body.appendChild(h);
+        setTimeout(()=>h.remove(),7000);
+      }, i*50);
+    }
+  }, 500);
 }
 
-const text=`Dear handsome, or should I say Psalms 45:2
-
-Happy Valentine's Day! 
-
-I just want to say that, I'm glad I've met you, again, after some months na hindi tayo nagkamustahan or talked, lam mo naman ung dahilan ba't ako lumayo haha. I hope this time, iba na, let's forget the past and have a fresh start. 
-
-Thankyou for the patience you have for me. Thankyou for the love you're giving me also. 
-
-This time I don't want to rush things with you, yes I like you, but, let's have some time to get to know each other, before we enter a serious relationship. 
-
-I hope you agree with me baby, but that doesn't mean na mag iiba ung trato ko sayo, noo, never, walang mag babago, I hope that you can wait for that right time.
-
-Don't worry my man di ako mawawala, unless matigok HAHAHAHA jok lang, kidding aside tho, I'll always be here.
-
-Hey baby, please don't be insecure or shy towards me, you're so pogi kaya, and seriously I'm not joking or pretending my compliments about you, they're all true, and yun ang nakikita ko.
-
-I hope you don't change the person I'm meeting rn, baka sa pagtagal ng panahon, mag iba kna ah HAHA, ediwla itigil natin to HAHAHA, but if you'll change for the best version of yourself then, goww support kita and I'll guide you there. 
-
-Stay handsome darling, be independent and stay kind, sweet, and be honest/open sakin, I don't want you to hide secrets from me ok? lalong lumalala ung trust issues ko e HAHA, kahit ung jokes mo, minsan nag dududa na ko, if you're lying or not. Btw baby, please, less laro, more studies, if I can do it, you can too.
-
-I love you so much handsome.
-
-Sincerely, Your Lady 💖
+const text=`Dear handsome, or should I say Psalms 45:2  
+  
+Happy Valentine's Day!   
+  
+I just want to say that, I'm glad I've met you, again, after some months na hindi tayo nagkamustahan or talked, lam mo naman ung dahilan ba't ako lumayo haha. I hope this time, iba na, let's forget the past and have a fresh start.   
+  
+Thankyou for the patience you have for me. Thankyou for the love you're giving me also.   
+  
+This time I don't want to rush things with you, yes I like you, but, let's have some time to get to know each other, before we enter a serious relationship.   
+  
+I hope you agree with me baby, but that doesn't mean na mag iiba ung trato ko sayo, noo, never, walang mag babago, I hope that you can wait for that right time.  
+  
+Don't worry my man di ako mawawala, unless matigok HAHAHAHA jok lang, kidding aside tho, I'll always be here.  
+  
+Hey baby, please don't be insecure or shy towards me, you're so pogi kaya, and seriously I'm not joking or pretending my compliments about you, they're all true, and yun ang nakikita ko.  
+  
+I hope you don't change the person I'm meeting rn, baka sa pagtagal ng panahon, mag iba kna ah HAHA, ediwla itigil natin to HAHAHA, but if you'll change for the best version of yourself then, goww support kita and I'll guide you there.   
+  
+Stay handsome darling, be independent and stay kind, sweet, and be honest/open sakin, I don't want you to hide secrets from me ok? lalong lumalala ung trust issues ko e HAHA, kahit ung jokes mo, minsan nag dududa na ko, if you're lying or not. Btw baby, please, less laro, more studies, if I can do it, you can too.  
+  
+I love you so much handsome.  
+  
+Sincerely, Your Lady 💖  
 `;
 
 function typeMessage(){
   let i=0;
   const el=document.getElementById("message");
-  el.innerHTML = ""; 
+  el.innerHTML = ''; 
   const interval=setInterval(()=>{
     if(text[i]==="\n"){
       el.innerHTML+="<br>";
@@ -438,7 +709,6 @@ function hearts(){
     }, i*50);
   }
   
-
   setInterval(()=>{
     const heartTypes = ["💖", "💕", "💗", "💓", "💞"];
     const h=document.createElement("div");
@@ -453,8 +723,8 @@ function hearts(){
 }
 
 function confettiExplosion(){
-  const colors = ["#cc3333", "#990000", "#660000", "#ff3333", "#cc0000"];
-  for(let i=0;i<100;i++){
+  const colors = ["#cc3333", "#990000", "#660000", "#ff3333", "#cc0000", "#ff6680"];
+  for(let i=0;i<150;i++){
     setTimeout(() => {
       const c=document.createElement("div");
       c.className="confetti";
@@ -465,7 +735,7 @@ function confettiExplosion(){
       c.style.borderRadius = Math.random() > 0.3 ? "50%" : "5px";
       document.body.appendChild(c);
       setTimeout(()=>c.remove(),3000);
-    }, i*20);
+    }, i*15);
   }
 }
 
