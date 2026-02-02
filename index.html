@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Only For You My Love 💝</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Comic Sans MS', 'Poppins', cursive;}
+
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background: linear-gradient(135deg,#ffe6ee,#ffcce0,#ffb3d9);
+  overflow:hidden;
+  color:#d1477c;
+  position:relative;
+}
+
+body::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" opacity="0.05"><path d="M50,30 Q60,20 70,30 T90,40 Q85,60 70,70 T50,90 Q30,70 20,60 T10,40 Q30,30 40,30 T50,30Z" fill="%23ff66a3"/></svg>');
+  pointer-events:none;
+}
+
+.card{
+  width:92%;
+  max-width:360px;
+  padding:30px 25px;
+  border-radius:25px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 15px 35px rgba(255, 105, 180, 0.2),
+    0 5px 15px rgba(255, 105, 180, 0.1),
+    inset 0 0 20px rgba(255, 255, 255, 0.8);
+  text-align:center;
+  transition:.5s;
+  position:relative;
+  z-index:10;
+  border: 3px solid #ffcce6;
+}
+
+.card::after{
+  content:"💗💖💕";
+  position:absolute;
+  top:-20px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:20px;
+  background:white;
+  padding:0 15px;
+  border-radius:20px;
+  box-shadow:0 5px 10px rgba(255,105,180,0.2);
+}
+
+.title{
+  font-size:24px;
+  font-weight:bold;
+  margin-bottom:8px;
+  color:#ff66a3;
+  text-shadow: 2px 2px 0px #ffe6f2;
+  letter-spacing:0.5px;
+  position:relative;
+  display:inline-block;
+}
+
+.sub{
+  font-size:14px;
+  opacity:.9;
+  margin-bottom:25px;
+  color:#ff80b3;
+  font-weight:600;
+}
+
+.display{
+  background: linear-gradient(145deg, #ffe6f2, #ffd9eb);
+  height:55px;
+  border-radius:15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  letter-spacing:14px;
+  font-size:26px;
+  margin-bottom:25px;
+  border: 2px dashed #ff99cc;
+  box-shadow: 
+    inset 0 0 10px rgba(255, 255, 255, 0.8),
+    0 5px 10px rgba(255, 105, 180, 0.1);
+  font-weight:bold;
+  color:#ff3399;
+  padding-right:14px;
+  font-family:monospace;
+}
+
+.keypad{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:10px;
+}
+
+button{
+  padding:20px 5px;
+  border:none;
+  border-radius:18px;
+  font-size:22px;
+  color:#ff66a3;
+  background: linear-gradient(145deg, #fff0f7, #ffe6f2);
+  transition:.2s;
+  font-weight:bold;
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
+  border: 2px solid #ffcce6;
+  box-shadow: 0 6px 0 #ffb3d9;
+  transform:translateY(0);
+}
+
+button:hover{
+  background: linear-gradient(145deg, #ffe6f2, #ffd9eb);
+  transform:translateY(-3px);
+  box-shadow: 0 8px 0 #ff99cc;
+}
+
+button:active{
+  transform:translateY(2px);
+  box-shadow: 0 2px 0 #ff99cc;
+  background: #ffcce6;
+}
+
+button::before{
+  content:"❤️";
+  position:absolute;
+  top:5px;
+  right:5px;
+  font-size:10px;
+  opacity:0.5;
+}
+
+button:nth-child(10){ 
+  background: linear-gradient(145deg, #ffd9eb, #ffcce6);
+  color:#ff3385;
+  box-shadow: 0 6px 0 #ff99cc;
+}
+
+button:nth-child(12){ 
+  background: linear-gradient(145deg, #d9ffeb, #ccffe6);
+  color:#33cc66;
+  box-shadow: 0 6px 0 #99ffbb;
+}
+
+@keyframes cuteShake{
+  0%,100%{transform:translateX(0)}
+  25%{transform:translateX(-8px) rotate(-2deg)}
+  50%{transform:translateX(8px) rotate(2deg)}
+  75%{transform:translateX(-8px) rotate(-2deg)}
+}
+.shake{animation:cuteShake .4s}
+
+.secret{
+  display:none;
+  animation:cuteReveal 1s ease forwards;
+  background: rgba(255, 255, 255, 0.95);
+}
+@keyframes cuteReveal{
+  0%{opacity:0; transform:scale(0.8) rotate(-5deg)}
+  50%{transform:scale(1.05) rotate(2deg)}
+  100%{opacity:1; transform:scale(1) rotate(0deg)}
+}
+
+.message{
+  margin-top:20px;
+  font-size:15px;
+  line-height:1.8;
+  min-height:180px;
+  text-align:center;
+  padding:20px;
+  background: linear-gradient(145deg, #fff5f9, #ffe6f2);
+  border-radius:20px;
+  border: 2px dotted #ff99cc;
+  font-weight:500;
+  color:#cc6699;
+  text-align:left;
+}
+
+.heart{
+  position:absolute;
+  color:#ff66a3;
+  animation:floatUp 7s linear infinite;
+  z-index:1;
+  filter: drop-shadow(0 0 3px rgba(255, 105, 180, 0.3));
+}
+@keyframes floatUp{
+  0%{transform:translateY(100vh) rotate(0deg) scale(0.5); opacity:0}
+  20%{opacity:1}
+  100%{transform:translateY(-100px) rotate(360deg) scale(1); opacity:0}
+}
+
+.sticker{
+  width:150px;
+  margin:15px auto 10px;
+  display:block;
+  filter: drop-shadow(0 5px 10px rgba(255, 105, 180, 0.3));
+  animation: bounce 2s infinite alternate;
+}
+
+@keyframes bounce{
+  0%{transform:translateY(0)}
+  100%{transform:translateY(-10px)}
+}
+
+.confetti{
+  position:fixed;
+  width:12px;
+  height:12px;
+  background: #ff66a3;
+  top:0;
+  left:50%;
+  pointer-events:none;
+  opacity:1;
+  transform:translateX(0);
+  animation:confettiFall 3s forwards;
+  border-radius:50%;
+  z-index:100;
+  box-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+}
+
+@keyframes confettiFall{
+  0%{transform:translateX(0) translateY(0) rotate(0deg);}
+  100%{transform:translateX(calc(-50vw + 100px)) translateY(100vh) rotate(720deg); opacity:0;}
+}
+
+.cloud{
+  position:absolute;
+  background:white;
+  border-radius:50%;
+  box-shadow: 0 0 20px rgba(255, 182, 193, 0.3);
+  z-index:0;
+  opacity:0.6;
+}
+
+.cloud:nth-child(1){width:80px;height:30px;top:20%;left:10%;}
+.cloud:nth-child(2){width:100px;height:40px;top:60%;right:15%;}
+.cloud:nth-child(3){width:60px;height:25px;top:80%;left:20%;}
+</style>
+</head>
+<body>
+
+<audio id="bgMusic" src="music.mp3" loop></audio>
+
+<div class="cloud"></div>
+<div class="cloud"></div>
+<div class="cloud"></div>
+
+<div class="card" id="lock">
+  <div class="title">For My Favorite Person 💕</div>
+  <div class="sub">Enter the code baby 🥰</div>
+
+  <div class="display" id="display">______</div>
+  <div class="keypad" id="keys"></div>
+</div>
+
+<div class="card secret" id="secret">
+  <div class="title">Happy Valentine's Day 💖</div>
+  <img class="sticker" src="https://raw.githubusercontent.com/DzarelDeveloper/Img/main/gifyou.webp" alt="cute sticker">
+  <div class="message" id="message"></div>
+</div>
+
+<script>
+const correct="100109";
+let input="";
+const display=document.getElementById("display");
+const keys=document.getElementById("keys");
+const lock=document.getElementById("lock");
+const secret=document.getElementById("secret");
+const music=document.getElementById("bgMusic");
+
+const layout=["1","2","3","4","5","6","7","8","9","C","0","✓"];
+layout.forEach(n=>{
+  const b=document.createElement("button");
+  b.textContent=n;
+  keys.appendChild(b);
+  b.onclick=()=>{
+    if(n==="C"){
+      input="";
+      update();
+      b.style.transform = "scale(0.9)";
+      setTimeout(() => {
+        b.style.transform = "";
+      }, 200);
+      return;
+    }
+    if(n==="✓"){
+      b.style.transform = "scale(0.9)";
+      setTimeout(() => {
+        b.style.transform = "";
+      }, 200);
+      check();
+      return;
+    }
+    if(input.length<6){
+      input+=n;
+      update();
+      b.style.transform = "scale(0.95)";
+      b.style.background = "#ffcce6";
+      setTimeout(() => {
+        b.style.transform = "";
+        b.style.background = "";
+      }, 150);
+    }
+  }
+});
+
+function update(){
+  let displayText = "";
+  for(let i = 0; i < 6; i++) {
+    if(i < input.length) {
+      displayText += `<span style="color:#ff0080;text-shadow:1px 1px 0 #ffcce6">${input[i]}</span>`;
+    } else {
+      displayText += "_";
+    }
+  }
+  display.innerHTML = displayText;
+}
+
+function check(){
+  if(input===correct){
+    unlock();
+  } else {
+
+    navigator.vibrate?.(100);
+    lock.classList.add("shake");
+    setTimeout(()=>lock.classList.remove("shake"),400);
+    input="";
+    update();
+  }
+}
+
+function unlock(){
+  document.body.style.background = "linear-gradient(135deg,#ffccdd,#ffb3d9,#ff99cc)";
+  setTimeout(() => {
+    document.body.style.background = "linear-gradient(135deg,#ffe6ee,#ffcce0,#ffb3d9)";
+  }, 300);
+
+  for(let i=0; i<20; i++){
+    const sparkle = document.createElement("div");
+    sparkle.style.position = "absolute";
+    sparkle.style.width = "5px";
+    sparkle.style.height = "5px";
+    sparkle.style.background = "white";
+    sparkle.style.borderRadius = "50%";
+    sparkle.style.left = Math.random()*100 + "vw";
+    sparkle.style.top = Math.random()*100 + "vh";
+    sparkle.style.boxShadow = "0 0 10px pink";
+    sparkle.style.animation = `sparkleFade 1s forwards`;
+    document.body.appendChild(sparkle);
+    setTimeout(() => sparkle.remove(), 1000);
+  }
+  
+  lock.style.display="none";
+  secret.style.display="block";
+
+  music.volume = 0;
+  music.play();
+  let vol = 0;
+  const fadeIn = setInterval(() => {
+    vol += 0.03;
+    music.volume = Math.min(vol, 0.5);
+    if(vol >= 0.5) clearInterval(fadeIn);
+  }, 100);
+  
+  hearts();
+  typeMessage();
+  confettiExplosion();
+}
+
+const text=`Hi love… 💖
+
+Kahit gaano kalayo ang pagitan natin,
+ikaw pa rin yung unang naiisip ko paggising
+at huling naiisip ko bago matulog.
+
+Distance can't touch what I feel for you.
+
+And one day,
+hindi na screen ang hahawakan ko…
+
+ikaw na.
+
+Happy Valentine's Day! 💝
+`;
+
+function typeMessage(){
+  let i=0;
+  const el=document.getElementById("message");
+  el.innerHTML = ""; 
+  const interval=setInterval(()=>{
+    el.innerHTML+=text[i];
+    i++;
+    if(i>=text.length) clearInterval(interval);
+  },40);
+}
+
+function hearts(){
+  for(let i=0; i<30; i++){
+    setTimeout(() => {
+      const h=document.createElement("div");
+      h.className="heart";
+      h.innerHTML="💗";
+      h.style.left=Math.random()*100+"vw";
+      h.style.fontSize=(20+Math.random()*30)+"px";
+      h.style.opacity = 0.8 + Math.random()*0.2;
+      document.body.appendChild(h);
+      setTimeout(()=>h.remove(),7000);
+    }, i*50);
+  }
+  
+
+  setInterval(()=>{
+    const heartTypes = ["💖", "💕", "💗", "💓", "💞"];
+    const h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML=heartTypes[Math.floor(Math.random()*heartTypes.length)];
+    h.style.left=Math.random()*100+"vw";
+    h.style.fontSize=(15+Math.random()*25)+"px";
+    h.style.opacity = 0.6 + Math.random()*0.4;
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),7000);
+  },1000);
+}
+
+function confettiExplosion(){
+  const colors = ["#ff66a3", "#ff99cc", "#ffb3d9", "#ff80bf", "#ff4d94"];
+  for(let i=0;i<100;i++){
+    setTimeout(() => {
+      const c=document.createElement("div");
+      c.className="confetti";
+      c.style.left=Math.random()*100+"vw";
+      c.style.background= colors[Math.floor(Math.random()*colors.length)];
+      c.style.width = (8 + Math.random()*8) + "px";
+      c.style.height = (8 + Math.random()*8) + "px";
+      c.style.borderRadius = Math.random() > 0.3 ? "50%" : "5px";
+      document.body.appendChild(c);
+      setTimeout(()=>c.remove(),3000);
+    }, i*20);
+  }
+}
+
+const style = document.createElement('style');
+style.textContent = `
+@keyframes sparkleFade {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.5); opacity: 1; }
+  100% { transform: scale(0); opacity: 0; }
+}
+`;
+document.head.appendChild(style);
+
+update();
+</script>
+</body>
+</html>
