@@ -190,6 +190,8 @@ button:nth-child(12){
   font-weight:500;
   color:#ffb3c6;
   text-align:left;
+
+  white-space: pre-wrap; /* ← PRESERVE LINE BREAKS */
 }
 
 .heart{
@@ -255,7 +257,7 @@ button:nth-child(12){
 </head>
 <body>
 
-<audio id="bgMusic" src="music.mp3" loop></audio>
+<audio id="bgMusic" src="alipin.mp3" loop></audio>
 
 <div class="cloud"></div>
 <div class="cloud"></div>
@@ -412,7 +414,11 @@ function typeMessage(){
   const el=document.getElementById("message");
   el.innerHTML = ""; 
   const interval=setInterval(()=>{
-    el.innerHTML+=text[i];
+    if(text[i]==="\n"){
+      el.innerHTML+="<br>";
+    }else{
+      el.innerHTML+=text[i];
+    }
     i++;
     if(i>=text.length) clearInterval(interval);
   },40);
